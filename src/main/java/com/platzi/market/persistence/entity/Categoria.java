@@ -14,17 +14,17 @@ public class Categoria {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_categoria")
-    private Integer idCategoria;
+    private Long idCategoria;
 
     private String descripcion;
 
     private Boolean estado;
 
-    public Integer getIdCategoria() {
+    public Long getIdCategoria() {
         return idCategoria;
     }
 
-    public void setIdCategoria(Integer idCategoria) {
+    public void setIdCategoria(Long idCategoria) {
         this.idCategoria = idCategoria;
     }
 
