@@ -5,9 +5,13 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "compras")
@@ -29,6 +33,16 @@ public class Compra {
     private String comentario;
 
     private String estado;
+
+    // Here we are going to map the relation between 'Compras' and 'Clientes'
+    @ManyToOne
+    @JoinColumn(name = "id_cliente", insertable = false, updatable = false)
+    private Cliente cliente;
+
+    // Here we are going to map the relation between 'Compras' and 'Compras_producto'
+    // mappedBy has to have the name of the attribute on the other class marked with @ManyToOne annotation
+    @OneToMany(mappedBy = "producto") // Because one 'compra' has many 'productos'
+    private List<ComprasProducto> productos;
 
     public Long getIdCompra() {
         return idCompra;

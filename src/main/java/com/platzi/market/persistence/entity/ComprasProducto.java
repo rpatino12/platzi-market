@@ -2,6 +2,8 @@ package com.platzi.market.persistence.entity;
 
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -15,6 +17,16 @@ public class ComprasProducto {
     private Integer cantidad;
     private Double total;
     private Boolean estado;
+
+    // Here we are going to map the relation between 'Compras' and 'Compras_producto'
+    @ManyToOne
+    @JoinColumn(name = "id_compra", insertable = false, updatable = false)
+    private Compra compra;
+
+    // Here we are going to map the relation between 'Productos' and 'Compras_producto'
+    @ManyToOne
+    @JoinColumn(name = "id_producto", insertable = false, updatable = false)
+    private Producto producto;
 
     public ComprasProductoPK getId() {
         return id;

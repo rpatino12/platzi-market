@@ -3,7 +3,10 @@ package com.platzi.market.persistence.entity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+
+import java.util.List;
 
 @Entity
 @Table(name="clientes")
@@ -18,6 +21,11 @@ public class Cliente {
 
     @Column(name="correo_electronico")
     private String correoElectronico;
+
+    // Here we are going to map the relation between 'Compras' and 'Clientes'
+    // mappedBy has to have the name of the attribute on the other class marked with @ManyToOne annotation
+    @OneToMany(mappedBy = "cliente")
+    private List<Compra> compras;
 
     public String getId() {
         return id;
