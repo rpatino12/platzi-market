@@ -41,7 +41,7 @@ public class Compra {
 
     // Here we are going to map the relation between 'Compras' and 'Compras_producto'
     // mappedBy has to have the name of the attribute on the other class marked with @ManyToOne annotation
-    @OneToMany(mappedBy = "producto") // Because one 'compra' has many 'productos'
+    @OneToMany(mappedBy = "compra") // Because one 'compra' has many 'productos'
     private List<ComprasProducto> productos;
 
     public Long getIdCompra() {
