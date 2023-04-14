@@ -5,6 +5,7 @@ import com.platzi.market.domain.repository.ProductRepository;
 import com.platzi.market.persistence.crud.ProductoCrudRepository;
 import com.platzi.market.persistence.entity.Producto;
 import com.platzi.market.persistence.mapper.ProductMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -13,8 +14,11 @@ import java.util.Optional;
 @Repository
 public class ProductoRepository implements ProductRepository {
     // We inject the repository interface that extends from CrudRepository to get all the methods from there
+    // To inject the dependencies we have to use the @Autowired annotation
+    @Autowired
     private ProductoCrudRepository productoCrudRepository;
     // Let's inject the mapper object
+    @Autowired
     private ProductMapper mapper;
 
     // Let's create a method to get all the products from the database
