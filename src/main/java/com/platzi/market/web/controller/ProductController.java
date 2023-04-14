@@ -3,7 +3,6 @@ package com.platzi.market.web.controller;
 import com.platzi.market.domain.Product;
 import com.platzi.market.domain.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
