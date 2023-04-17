@@ -60,4 +60,21 @@ public class ProductoRepository implements ProductRepository {
     public void delete(long productId) {
         productoCrudRepository.deleteById(productId);
     }
+
+    @Override
+    public Product updateProduct(Product product, long id) {
+        Producto nuevoProducto = mapper.toProducto(product);
+        return productoCrudRepository.findById(id)
+                .map(
+                        producto -> {
+                            producto.setNombre(nuevoProducto.getNombre());
+                            producto.setIdCategoria(nuevoProducto.getIdCategoria());
+                            producto.setPrecioVenta(nuevoProducto.getPrecioVenta());
+                            producto.setCantidadStock(nuevoProducto.getCantidadStock());
+                            producto.setEstado(nuevoProducto.getEstado());
+                            productoCrudRepository.save(producto);
+                            return mapper.toProduct(producto);
+                        }
+                ).get();
+    }
 }

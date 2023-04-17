@@ -12,4 +12,5 @@ public interface ProductRepository {
     Optional<Product> getProduct(long productId);
     Product save(Product product);
     void delete(long productId);
+    Product updateProduct(Product product, long id);
 }
