@@ -4,6 +4,7 @@ import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.MapsId;
 import jakarta.persistence.Table;
 
 @Entity
@@ -20,6 +21,7 @@ public class ComprasProducto {
 
     // Here we are going to map the relation between 'Compras' and 'Compras_producto'
     @ManyToOne
+    @MapsId("idCompra") // Because we use the cascade = {CascadeType.ALL} in Compra class for List<ComprasProducto>
     @JoinColumn(name = "id_compra", insertable = false, updatable = false)
     private Compra compra;
 

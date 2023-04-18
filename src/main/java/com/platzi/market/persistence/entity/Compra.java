@@ -1,5 +1,6 @@
 package com.platzi.market.persistence.entity;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -41,7 +42,7 @@ public class Compra {
 
     // Here we are going to map the relation between 'Compras' and 'Compras_producto'
     // mappedBy has to have the name of the attribute on the other class marked with @ManyToOne annotation
-    @OneToMany(mappedBy = "compra") // Because one 'compra' has many 'productos'
+    @OneToMany(mappedBy = "compra", cascade = {CascadeType.ALL}) // Because one 'compra' has many 'productos'
     private List<ComprasProducto> productos;
 
     public Long getIdCompra() {
