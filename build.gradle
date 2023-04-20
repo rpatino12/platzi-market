@@ -20,6 +20,13 @@ dependencies {
 	implementation 'org.mapstruct:mapstruct:1.5.3.Final'
 	annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.3.Final'
 
+	// To document our API with Swagger2, so our API will be easier to use and understand and will be more professional
+	implementation 'io.springfox:springfox-swagger2:3.0.0'
+	// This dependency will create an html of Swagger, where we can see our API endpoints
+	// (https://localhost:8090/platzi-market/api/swagger-ui.html)
+	implementation 'io.springfox:springfox-swagger-ui:3.0.0'
+
+
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
