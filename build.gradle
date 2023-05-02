@@ -14,6 +14,8 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	// This framework adds security to our API, with default user: user and a generated password everytime we run the app
+	implementation 'org.springframework.boot:spring-boot-starter-security'
 	// We use the keyword runtimeOnly for this dependency because we only need it in runtime
 	runtimeOnly 'org.postgresql:postgresql'
 	// Let's import the mapstruct library to our project, to implement the data mapper
