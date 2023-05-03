@@ -23,7 +23,10 @@ dependencies {
 	annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.3.Final'
 
 	// Let's add the dependency to create JSON Web Tokens (JWT)
-	implementation 'io.jsonwebtoken:jjwt:0.9.1'
+	// https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt-api
+	implementation 'io.jsonwebtoken:jjwt-api:0.11.5'
+	implementation 'io.jsonwebtoken:jjwt-gson:0.11.5'
+	runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.11.5'
 
 	// To document our API with Swagger2, so our API will be easier to use and understand and will be more professional
 	implementation 'io.springfox:springfox-swagger2:3.0.0'
